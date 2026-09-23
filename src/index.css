@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './themes.css';
+
+/* =========================================
+   COMPONENT CLASSES
+   ========================================= */
+@layer components {
+  .card {
+    @apply bg-bg-card rounded-xl border border-border shadow-sm overflow-hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-border bg-bg-card 
+           text-text-primary text-sm
+           focus:outline-none focus:ring-2 focus:border-accent
+           transition-all;
+    box-shadow: 0 0 0 0 var(--accent-light);
+  }
+  .input:focus {
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+  .input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-3 py-2 rounded-lg 
+           font-medium text-sm transition-all focus:outline-none focus:ring-2;
+    box-shadow: 0 0 0 0 var(--accent-light);
+  }
+  .btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent-hover shadow-sm;
+  }
+  .btn-secondary {
+    @apply bg-bg-secondary text-text-primary border border-border hover:bg-bg-primary;
+  }
+  .btn-ghost {
+    @apply text-text-secondary hover:text-text-primary hover:bg-bg-secondary;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border transition-colors;
+  }
+  
+  .badge-primary { 
+    @apply text-accent;
+    background-color: var(--accent-light);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
+  }
+  .badge-secondary { 
+    @apply bg-bg-secondary text-text-secondary border-border; 
+  }
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; height: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+}
